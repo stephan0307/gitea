@@ -1,1 +1,1 @@
-docker build --tag gitea:1.22.0-alpine3.17 .
+docker build --tag gitea:1.22.1-alpine3.17 .

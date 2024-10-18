@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.22.5-alpine3.17 AS build-env
+FROM golang:1.22.8-alpine3.17 AS build-env
 
 ARG GOPROXY
 ENV GOPROXY=${GOPROXY:-direct}
@@ -39,7 +39,7 @@ RUN chmod 755 /tmp/local/usr/local/bin/docker-entrypoint.sh \
               /go/src/code.gitea.io/gitea/environment-to-ini
 RUN chmod 644 /go/src/code.gitea.io/gitea/contrib/autocompletion/bash_autocomplete
 
-FROM alpine:3.17
+FROM alpine:3.17.10
 LABEL maintainer="maintainers@gitea.io"
 
 EXPOSE 2222 3000

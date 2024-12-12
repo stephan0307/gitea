@@ -4,7 +4,84 @@ This changelog goes through the changes that have been made in each release
 without substantial changes to our git log; to see the highlights of what has
 been added to each release, please refer to the [blog](https://blog.gitea.com).
 
-## [1.22.3](https://github.com/go-gitea/gitea/releases/tag/1.22.3) - 2024-10-08
+## [1.22.5](https://github.com/go-gitea/gitea/releases/tag/v1.22.5) - 2024-12-11
+
+* SECURITY
+  * Upgrade crypto library (#32791)
+  * Fix delete branch perm checking (#32654) (#32707)
+* BUGFIXES
+  * Add standard-compliant route to serve outdated R packages (#32783) (#32789)
+  * Fix internal server error when updating labels without write permission (#32776) (#32785)
+  * Add Swift login endpoint (#32693) (#32701)
+  * Fix fork page branch selection (#32711) (#32725)
+  * Fix word overflow in file search page (#32695) (#32699)
+  * Fix gogit `GetRefCommitID` (#32705) (#32712)
+  * Fix race condition in mermaid observer (#32599) (#32673)
+  * Fixe a keystring misuse and refactor duplicates keystrings (#32668) (#32792)
+  * Bump relative-time-element to v4.4.4 (#32739)
+* PERFORMANCE
+  * Make wiki pages visit fast (#32732) (#32745)
+* MISC
+  * Don't create action when syncing mirror pull refs (#32659) (#32664)
+
+## [1.22.4](https://github.com/go-gitea/gitea/releases/tag/v1.22.4) - 2024-11-14
+
+* SECURITY
+  * Fix basic auth with webauthn (#32531) (#32536)
+  * Refactor internal routers (partial backport, auth token const time comparing) (#32473) (#32479)
+* PERFORMANCE
+  * Remove transaction for archive download (#32186) (#32520)
+* BUGFIXES
+  * Fix `missing signature key` error when pulling Docker images with `SERVE_DIRECT` enabled (#32365) (#32397)
+  * Fix get reviewers fails when selecting user without pull request permissions unit (#32415) (#32616)
+  * Fix adding index files to tmp directory (#32360) (#32593)
+  * Fix PR creation on forked repositories via API (#31863) (#32591)
+  * Fix missing menu tabs in organization project view page (#32313) (#32592)
+  * Support HTTP POST requests to `/userinfo`, aligning to OpenID Core specification (#32578) (#32594)
+  * Fix debian package clean up cron job (#32351) (#32590)
+  * Fix GetInactiveUsers (#32540) (#32588)
+  * Allow the actions user to login via the jwt token (#32527) (#32580)
+  * Fix submodule parsing (#32571) (#32577)
+  * Refactor find forks and fix possible bugs that weaken permissions check (#32528) (#32547)
+  * Fix some places that don't respect org full name setting (#32243) (#32550)
+  * Refactor push mirror find and add check for updating push mirror (#32539) (#32549)
+  * Fix basic auth with webauthn (#32531) (#32536)
+  * Fix artifact v4 upload above 8MB (#31664) (#32523)
+  * Fix oauth2 error handle not return immediately (#32514) (#32516)
+  * Fix action not triggered when commit message is too long (#32498) (#32507)
+  * Fix `GetRepoLink` nil pointer dereference on dashboard feed page when repo is deleted with actions enabled (#32501) (#32502)
+  * Fix `missing signature key` error when pulling Docker images with `SERVE_DIRECT` enabled (#32397) (#32397)
+  * Fix the permission check for user search API and limit the number of returned users for `/user/search` (#32310)
+  * Fix SearchIssues swagger docs (#32208) (#32298)
+  * Fix dropdown content overflow (#31610) (#32250)
+  * Disable Oauth check if oauth disabled (#32368) (#32480)
+  * Respect renamed dependencies of Cargo registry (#32430) (#32478)
+  * Fix mermaid diagram height when initially hidden (#32457) (#32464)
+  * Fix broken releases when re-pushing tags (#32435) (#32449)
+  * Only provide the commit summary for Discord webhook push events (#32432) (#32447)
+  * Only query team tables if repository is under org when getting assignees (#32414) (#32426)
+  * Fix created_unix for mirroring (#32342) (#32406)
+  * Respect UI.ExploreDefaultSort setting again (#32357) (#32385)
+  * Fix broken image when editing comment with non-image attachments (#32319) (#32345)
+  * Fix disable 2fa bug (#32320) (#32330)
+  * Always update expiration time when creating an artifact (#32281) (#32285)
+  * Fix null errors on conversation holder (#32258) (#32266) (#32282)
+  * Only rename a user when they should receive a different name (#32247) (#32249)
+  * Fix checkbox bug on private/archive filter (#32236) (#32240)
+  * Add a doctor check to disable the "Actions" unit for mirrors (#32424) (#32497)
+  * Quick fix milestone deadline 9999 (#32423)
+  * Make `show stats` work when only one file changed (#32244) (#32268)
+  * Make `owner/repo/pulls` handlers use "PR reader" permission (#32254) (#32265)
+  * Update scheduled tasks even if changes are pushed by "ActionsUser" (#32246) (#32252)
+* MISC
+  * Remove unnecessary code: `GetPushMirrorsByRepoID` called on all repo pages (#32560) (#32567)
+  * Improve some sanitizer rules (#32534)
+  * Update nix development environment vor v1.22.x (#32495)
+  * Add warn log when deleting inactive users (#32318) (#32321)
+  * Update github.com/go-enry/go-enry to v2.9.1 (#32295) (#32296)
+  * Warn users when they try to use a non-root-url to sign in/up (#32272) (#32273)
+
+## [1.22.3](https://github.com/go-gitea/gitea/releases/tag/v1.22.3) - 2024-10-08
 
 * SECURITY
   * Fix bug when a token is given public only (#32204) (#32218)
@@ -45,7 +122,7 @@ been added to each release, please refer to the [blog](https://blog.gitea.com).
   * Lazy load avatar images (#32051) (#32063)
   * Upgrade cache to v0.2.1 (#32003) (#32009)
 
-## [1.22.2](https://github.com/go-gitea/gitea/releases/tag/1.22.2) - 2024-08-28
+## [1.22.2](https://github.com/go-gitea/gitea/releases/tag/v1.22.2) - 2024-08-28
 
 * Security
   * Replace v-html with v-text in search inputbox (#31966) (#31973)
@@ -101,7 +178,7 @@ been added to each release, please refer to the [blog](https://blog.gitea.com).
   * Upgrade micromatch to 4.0.8 (#31944)
   * Update webpack to 5.94.0 (#31941)
 
-## [1.22.1](https://github.com/go-gitea/gitea/releases/tag/1.22.1) - 2024-07-04
+## [1.22.1](https://github.com/go-gitea/gitea/releases/tag/v1.22.1) - 2024-07-04
 
 * SECURITY
   * Add replacement module for `mholt/archiver` (#31267) (#31270)
